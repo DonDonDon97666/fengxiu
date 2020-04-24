@@ -1,0 +1,56 @@
+<view class="header">
+    <l-search-bar
+        placeholder="输入商品名称"
+        maxlength="9"
+        bg-color="#f1f1f1"
+        bind:linconfirm="onSearch"
+        bind:lincancel="onCancel"
+        l-class="input">
+    </l-search-bar>
+</view>
+
+<view class="container">
+    <view wx:if="{{!search}}">
+        <view wx:if="{{historyTags.length !== 0}}" class="history-container">
+            <view class="history-title">
+                <view class="slide"></view>
+                <text>历史搜索</text>
+                <view style="flex:1;"></view>
+                <view class="icon" bind:tap="onDeleteHistory">
+                    <l-icon name="delete" size="24" color="#999999"></l-icon>
+                </view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{historyTags}}" wx:key="{{index}}">
+                    <l-tag name="{{item}}" l-class="tag" bind:lintap="onSearch">
+                        {{item}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
+
+        <view wx:if="{{hotTags.length !== 0}}" class="history-container">
+            <view class="history-title">
+                <view class="slide"></view>
+                <text>热门搜索</text>
+                <view style="flex:1;"></view>
+            </view>
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}" wx:key="{{index}}">
+                    <l-tag select="{{item.highlight}}" name="{{item.title}}" l-class="tag" l-select-class="tag-selected" bind:lintap="onSearch">
+                        {{item.title}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <view wx:else>
+        <block wx:for="{{items}}">
+            <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
+        </block>
+    </view>
+
+    <l-loading></l-loading>
+    
+</view>

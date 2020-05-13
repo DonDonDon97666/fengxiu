@@ -21,7 +21,7 @@
                 </view>
             </view>
             <view class="history-tags">
-                <block wx:for="{{historyTags}}" wx:key="{{index}}">
+                <block wx:for="{{historyTags}}" wx:key="index">
                     <l-tag name="{{item}}" l-class="tag" bind:lintap="onSearch">
                         {{item}}
                     </l-tag>
@@ -36,7 +36,7 @@
                 <view style="flex:1;"></view>
             </view>
             <view class="history-tags">
-                <block wx:for="{{hotTags}}" wx:key="{{index}}">
+                <block wx:for="{{hotTags}}" wx:key="index">
                     <l-tag select="{{item.highlight}}" name="{{item.title}}" l-class="tag" l-select-class="tag-selected" bind:lintap="onSearch">
                         {{item.title}}
                     </l-tag>

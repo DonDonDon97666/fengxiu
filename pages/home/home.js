@@ -4,6 +4,7 @@ import {Banner} from "../../model/banner";
 import {Category} from "../../model/category";
 import {Activity} from "../../model/activity";
 import {SpuPage} from "../../model/spu-page";
+import {CouponCenterType} from "../../core/enum";
 
 Page({
 
@@ -80,6 +81,13 @@ Page({
       themeF,
       bannerG,
       themeH
+    })
+  },
+
+  onGoToCoupons(event) {
+    const name = event.currentTarget.dataset.aname
+    wx.navigateTo({
+        url: `/pages/coupon/coupon?name=${name}&type=${CouponCenterType.ACTIVITY}`
     })
   },
 

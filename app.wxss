@@ -27,3 +27,11 @@ page{
 .l-icon-home:before{
   content: '\e61f'
 }
+
+.l-icon-check:before {
+    content: "\e798"
+}
+
+.l-icon-address1:before {
+    content: "\e769"
+}

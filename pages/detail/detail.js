@@ -4,6 +4,8 @@ import {ShoppingWay} from "../../core/enum";
 import {SaleExplain} from "../../model/sale-explain";
 import {getSystemSize, getWindowHeightRpx} from "../../utils/system";
 import {px2rpx} from "../../miniprogram_npm/lin-ui/utils/util";
+import { Cart } from "../../model/cart";
+import { CartItem } from "../../model/cart-item";
 
 Page({
 
@@ -14,7 +16,8 @@ Page({
         showRealm: false,
         spu: Object,
         orderWay: String,
-        explain: Array
+        explain: Array,
+        cartItemCount: 0
     },
 
     onAddToCart(event) {
@@ -34,6 +37,27 @@ Page({
     onGoToHome(event) {
         wx.switchTab({
             url: '/pages/home/home'
+        })
+    },
+
+    onShopping(event){
+        const chosenSku = event.detail.sku
+        const skuCount = event.detail.skuCount
+
+        if(event.detail.orderWay === ShoppingWay.CART){
+            const cart = new Cart()
+            const cartItem = new CartItem(chosenSku, skuCount)
+            cart.addItem(cartItem)
+            this.updateCartItemCount()
+        }
+
+    },
+
+    updateCartItemCount(){
+        const cart = new Cart()
+        this.setData({
+            cartItemCount: cart.getCartItemCount(),
+            showRealm: false
         })
     },
 
@@ -63,6 +87,8 @@ Page({
             explain,
             h
         })
+
+        this.updateCartItemCount()
     },
 
     /**

@@ -1,4 +1,4 @@
-<l-loadmore show type="{{loading}}" end-text="- wuyz作品 -">
+<l-loadmore show type="{{loading}}" end-text="- wuyz作哝 -">
     <view slot="content">
         <image class="top-theme" src="{{themeA.entrance_img}}"></image>
         <swiper class="swiper"
@@ -15,7 +15,7 @@
 
         <s-category-grid grid="{{grid}}"></s-category-grid>
 
-        <image class="activity" src="{{activityD.entrance_img}}"></image>
+        <image data-aname="a-2" bind:tap="onGoToCoupons" class="activity" src="{{activityD.entrance_img}}"></image>
 
         <s-spu-scroll wx:if="{{themeE.online}}"
                       theme="{{themeE}}"

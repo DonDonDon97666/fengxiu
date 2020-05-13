@@ -6,7 +6,9 @@
     "pages/category/category",
     "pages/my/my",
     "pages/search/search",
-    "pages/spu-list/spu-list"
+    "pages/spu-list/spu-list",
+    "pages/order/order",
+    "pages/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -65,6 +67,12 @@
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
     "s-spu-preview": "/components/spu-preview/index",
     "s-spu-preview-r": "/components/spu-preview-r/index",
-    "s-counter": "/components/counter/index"
+    "s-counter": "/components/counter/index",
+    "s-empty": "/components/empty/index",
+    "s-checkbox": "/components/checkbox/index",
+    "l-slide-view": "/miniprogram_npm/lin-ui/slide-view/index",
+    "s-address": "/components/address/index",
+    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
+    "s-order-sku-item": "/components/order-sku-item/index"
   }
 }

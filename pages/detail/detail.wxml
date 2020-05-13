@@ -29,17 +29,18 @@
     </view>
 
     <view class="detail-img-container">
-        <block wx:for="{{spu.spu_detail_img_list}}" wx:key="{{index}}">
+        <block wx:for="{{spu.spu_detail_img_list}}" wx:key="index">
             <image mode="widthFix" class="detail-img" src="{{item.img}}"></image>
         </block>
     </view>
 </scroll-view>
 
 <l-popup show="{{showRealm}}" content-align="bottom">
-    <s-realm bind:specChange="onSpecChange" spu="{{spu}}" order-way="{{orderWay}}"></s-realm>
+    <s-realm bind:shopping="onShopping" bind:specChange="onSpecChange" spu="{{spu}}" order-way="{{orderWay}}"></s-realm>
 </l-popup>
 
 <s-tabbar class="tabbar" bind:gotohome="onGoToHome"
+            cart-item-count="{{cartItemCount}}"
           bind:gotocart="onGoToCart"
           bind:addtocart="onAddToCart"
           bind:buy="onBuy"></s-tabbar>
